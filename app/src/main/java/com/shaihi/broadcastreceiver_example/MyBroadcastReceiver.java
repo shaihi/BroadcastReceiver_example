@@ -8,6 +8,11 @@ import android.util.Log;
 public class MyBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d("MyBroadcastReceiver", "Broadcast received!");
+        boolean isAirplaneModeOn = intent.getBooleanExtra("state", false);
+        if (isAirplaneModeOn) {
+            Log.d("MyBroadcastReceiver", "Airplane mode is ON");
+        } else {
+            Log.d("MyBroadcastReceiver", "Airplane mode is OFF");
+        }
     }
 }
